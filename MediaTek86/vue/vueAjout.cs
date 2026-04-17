@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MediaTek86.vue
 {
-    public partial class vuePersonnel : Form
+    public partial class vueAjout : Form
     {
-        public vuePersonnel()
+        public vueAjout()
         {
             InitializeComponent();
         }
