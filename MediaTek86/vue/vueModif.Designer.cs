@@ -1,5 +1,8 @@
 ﻿namespace MediaTek86.vue
 {
+    /// <summary>
+    /// Interface permettant de modifier un personnel.
+    /// </summary>
     partial class vueModif
     {
         /// <summary>

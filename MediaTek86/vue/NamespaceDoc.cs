@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaTek86.modele
+namespace MediaTek86.vue
 {
     /// <summary>
-    /// Classe représentant un motif de l'application.
+    /// Package vue, pour l'interface graphique.
     /// </summary>
-    internal class mdlMotif
+    internal class NamespaceDoc
     {
     }
 }

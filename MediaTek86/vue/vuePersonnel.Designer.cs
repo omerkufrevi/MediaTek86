@@ -1,5 +1,8 @@
 ﻿namespace MediaTek86.vue
 {
+    /// <summary>
+    /// Interface permettant d'afficher la liste des personnels, et de les modifier, ajouter ou supprimer.
+    /// </summary>
     partial class vuePersonnel
     {
         /// <summary>

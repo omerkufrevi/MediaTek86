@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MediaTek86.modele
 {
+    /// <summary>
+    /// Classe représentant un personnel de l'application.
+    /// </summary>
     internal class mdlPersonnel
     {
     }

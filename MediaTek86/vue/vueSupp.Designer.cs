@@ -1,5 +1,8 @@
 ﻿namespace MediaTek86.vue
 {
+    /// <summary>
+    /// Interface de confirmation de suprression.
+    /// </summary>
     partial class vueSupp
     {
         /// <summary>

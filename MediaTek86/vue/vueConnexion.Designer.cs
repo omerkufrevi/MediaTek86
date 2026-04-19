@@ -1,5 +1,8 @@
 ﻿namespace MediaTek86.vue
 {
+    /// <summary>
+    /// Interface permettant à l'utilisateur de se connecter à l'application.
+    /// </summary>
     partial class vueConnexion
     {
         /// <summary>

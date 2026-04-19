@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace MediaTek86.modele
 {
     /// <summary>
-    /// Classe représentant un motif de l'application.
+    /// Package modele, pour definir les données.
     /// </summary>
-    internal class mdlMotif
+    internal class NamespaceDoc
     {
     }
 }

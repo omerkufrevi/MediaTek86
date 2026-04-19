@@ -1,5 +1,8 @@
 ﻿namespace MediaTek86.vue
 {
+    /// <summary>
+    /// Interface permettant de modifier une absence.
+    /// </summary>
     partial class vueModifAbs
     {
         /// <summary>

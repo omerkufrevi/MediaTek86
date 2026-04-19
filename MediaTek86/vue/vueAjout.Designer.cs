@@ -1,5 +1,8 @@
 ﻿namespace MediaTek86.vue
 {
+    /// <summary>
+    /// Interface permettant d'ajouter un personnel.
+    /// </summary>
     partial class vueAjout
     {
         /// <summary>

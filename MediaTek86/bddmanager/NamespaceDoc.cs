@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaTek86.modele
+namespace MediaTek86.bddmanager
 {
     /// <summary>
-    /// Classe représentant un motif de l'application.
+    /// Package bddmanager, pour établir la connexion.
     /// </summary>
-    internal class mdlMotif
+    internal class NamespaceDoc
     {
     }
 }

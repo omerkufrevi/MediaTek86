@@ -1,5 +1,8 @@
 ﻿namespace MediaTek86.vue
 {
+    /// <summary>
+    /// Interface permettant d'afficher la liste des absences d'un personnel, modifier, ajouter ou supprimer.
+    /// </summary>
     partial class vueAbsence
     {
         /// <summary>

@@ -6,6 +6,12 @@ using System.Windows.Forms;
 
 namespace MediaTek86
 {
+    /// <summary>
+    /// Application de gestion de personnel et d'absence.
+    /// </summary>
+    internal class NamespaceDoc
+    {
+    }
     internal static class Program
     {
         /// <summary>

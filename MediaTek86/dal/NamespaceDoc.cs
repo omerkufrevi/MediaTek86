@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaTek86.modele
+namespace MediaTek86.dal
 {
     /// <summary>
-    /// Classe représentant un motif de l'application.
+    /// Package dal, fichier pour exploiter les données de la bdd.
     /// </summary>
-    internal class mdlMotif
+    internal class NamespaceDoc
     {
     }
 }
