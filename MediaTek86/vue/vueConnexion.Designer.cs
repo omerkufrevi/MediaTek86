@@ -32,9 +32,9 @@
         private void InitializeComponent()
         {
             this.grpboxConnexion = new System.Windows.Forms.GroupBox();
-            this.btnConnexion = new System.Windows.Forms.Button();
             this.txtboxLogin = new System.Windows.Forms.RichTextBox();
-            this.txtboxPwd = new System.Windows.Forms.RichTextBox();
+            this.btnConnexion = new System.Windows.Forms.Button();
+            this.txtboxPwd = new System.Windows.Forms.TextBox();
             this.grpboxConnexion.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +50,15 @@
             this.grpboxConnexion.TabStop = false;
             this.grpboxConnexion.Text = "Connexion";
             // 
+            // txtboxLogin
+            // 
+            this.txtboxLogin.Location = new System.Drawing.Point(35, 42);
+            this.txtboxLogin.Multiline = false;
+            this.txtboxLogin.Name = "txtboxLogin";
+            this.txtboxLogin.Size = new System.Drawing.Size(227, 30);
+            this.txtboxLogin.TabIndex = 0;
+            this.txtboxLogin.Text = "";
+            // 
             // btnConnexion
             // 
             this.btnConnexion.Location = new System.Drawing.Point(110, 267);
@@ -58,34 +67,28 @@
             this.btnConnexion.TabIndex = 2;
             this.btnConnexion.Text = "Connexion";
             this.btnConnexion.UseVisualStyleBackColor = true;
-            // 
-            // txtboxLogin
-            // 
-            this.txtboxLogin.Location = new System.Drawing.Point(35, 42);
-            this.txtboxLogin.Name = "txtboxLogin";
-            this.txtboxLogin.Size = new System.Drawing.Size(227, 30);
-            this.txtboxLogin.TabIndex = 0;
-            this.txtboxLogin.Text = "";
+            this.btnConnexion.Click += new System.EventHandler(this.btnConnexion_Click);
             // 
             // txtboxPwd
             // 
-            this.txtboxPwd.Location = new System.Drawing.Point(35, 111);
+            this.txtboxPwd.Location = new System.Drawing.Point(35, 100);
             this.txtboxPwd.Name = "txtboxPwd";
-            this.txtboxPwd.Size = new System.Drawing.Size(227, 31);
+            this.txtboxPwd.PasswordChar = '*';
+            this.txtboxPwd.Size = new System.Drawing.Size(227, 26);
             this.txtboxPwd.TabIndex = 1;
-            this.txtboxPwd.Text = "";
             // 
             // vueConnexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 387);
+            this.ClientSize = new System.Drawing.Size(468, 387);
             this.Controls.Add(this.btnConnexion);
             this.Controls.Add(this.grpboxConnexion);
             this.Name = "vueConnexion";
             this.Text = "vueConnexion";
             this.Load += new System.EventHandler(this.vueConnexion_Load);
             this.grpboxConnexion.ResumeLayout(false);
+            this.grpboxConnexion.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -94,6 +97,6 @@
         private System.Windows.Forms.GroupBox grpboxConnexion;
         private System.Windows.Forms.Button btnConnexion;
         private System.Windows.Forms.RichTextBox txtboxLogin;
-        private System.Windows.Forms.RichTextBox txtboxPwd;
+        private System.Windows.Forms.TextBox txtboxPwd;
     }
 }

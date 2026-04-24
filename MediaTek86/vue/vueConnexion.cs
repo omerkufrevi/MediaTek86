@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MediaTek86.dal;
+using Mysqlx;
 
 namespace MediaTek86.vue
 {
@@ -22,5 +24,30 @@ namespace MediaTek86.vue
 
         }
 
+        private void btnConnexion_Click(object sender, EventArgs e)
+        {
+            string loginText = txtboxLogin.Text;
+            string pwdText = txtboxPwd.Text;
+            if (loginText == "" || pwdText == "")
+            {
+                MessageBox.Show("Veuillez remplir tous les champs");
+                return;
+            }
+            else
+            {
+                bool resultat = dalResponsableAcces.controleConnexion(loginText, pwdText);
+                if (resultat)
+                {
+                    MessageBox.Show("Connexion réussie");
+                    vuePersonnel frm = new vuePersonnel();
+                    frm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Erreur");
+                }
+            }
+        }
     }
 }
