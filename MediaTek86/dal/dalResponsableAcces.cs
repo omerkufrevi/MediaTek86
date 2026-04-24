@@ -22,8 +22,8 @@ namespace MediaTek86.dal
             using (MySqlConnection connection = BddManager.GetConnection())
             {
                 connection.Open();
-                string req = "SELECT * FROM responsable WHERE login = @login AND pwd = SHA2(@pwd, 256)";
-                using (MySqlCommand cmd = new MySqlCommand(req, connection))
+                string requetteSql = "SELECT * FROM responsable WHERE login = @login AND pwd = SHA2(@pwd, 256)";
+                using (MySqlCommand cmd = new MySqlCommand(requetteSql, connection))
                 {
                     cmd.Parameters.AddWithValue("@login", loginText);
                     cmd.Parameters.AddWithValue("@pwd", pwdText);
