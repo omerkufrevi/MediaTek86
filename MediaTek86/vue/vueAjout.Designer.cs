@@ -32,6 +32,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbboxService = new System.Windows.Forms.ComboBox();
             this.txtboxMail = new System.Windows.Forms.TextBox();
             this.txtboxTel = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,8 +44,6 @@
             this.txtboxNom = new System.Windows.Forms.TextBox();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnConfirmer = new System.Windows.Forms.Button();
-            this.cmbboxService = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +66,27 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Les informations";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(123, 154);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 20);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Service";
+            // 
+            // cmbboxService
+            // 
+            this.cmbboxService.FormattingEnabled = true;
+            this.cmbboxService.Items.AddRange(new object[] {
+            "admninistratif",
+            "médiation culturelle",
+            "prêt"});
+            this.cmbboxService.Location = new System.Drawing.Point(127, 177);
+            this.cmbboxService.Name = "cmbboxService";
+            this.cmbboxService.Size = new System.Drawing.Size(196, 28);
+            this.cmbboxService.TabIndex = 8;
             // 
             // txtboxMail
             // 
@@ -139,6 +160,7 @@
             this.btnAnnuler.TabIndex = 1;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // btnConfirmer
             // 
@@ -148,23 +170,7 @@
             this.btnConfirmer.TabIndex = 2;
             this.btnConfirmer.Text = "Confirmer";
             this.btnConfirmer.UseVisualStyleBackColor = true;
-            // 
-            // cmbboxService
-            // 
-            this.cmbboxService.FormattingEnabled = true;
-            this.cmbboxService.Location = new System.Drawing.Point(127, 177);
-            this.cmbboxService.Name = "cmbboxService";
-            this.cmbboxService.Size = new System.Drawing.Size(196, 28);
-            this.cmbboxService.TabIndex = 8;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(123, 154);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 20);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Service";
+            this.btnConfirmer.Click += new System.EventHandler(this.btnConfirmer_Click);
             // 
             // vueAjout
             // 

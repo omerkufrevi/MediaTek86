@@ -27,5 +27,11 @@ namespace MediaTek86.vue
             ListPrsnl.Columns["mail"].HeaderText = "Email";
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            vueAjout frm = new vueAjout();
+            frm.Show();
+            this.Hide();
+        }
     }
 }

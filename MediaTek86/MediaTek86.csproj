@@ -160,12 +160,6 @@
     <Compile Include="vue\vueModif.Designer.cs">
       <DependentUpon>vueModif.cs</DependentUpon>
     </Compile>
-    <Compile Include="vue\vueSupp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="vue\vueSupp.Designer.cs">
-      <DependentUpon>vueSupp.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -196,11 +190,7 @@
     <EmbeddedResource Include="vue\vueModif.resx">
       <DependentUpon>vueModif.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="vue\vueSupp.resx">
-      <DependentUpon>vueSupp.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\MediaTek86.modele.mdlPersonnel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
