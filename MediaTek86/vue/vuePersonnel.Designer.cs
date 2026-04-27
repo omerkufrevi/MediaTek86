@@ -33,14 +33,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.grpboxListPrsnl = new System.Windows.Forms.GroupBox();
-            this.ListPrsnl = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.ListPrsnl = new System.Windows.Forms.ListBox();
             this.mdlPersonnelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grpboxListPrsnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ListPrsnl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mdlPersonnelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,14 +53,6 @@
             this.grpboxListPrsnl.TabIndex = 1;
             this.grpboxListPrsnl.TabStop = false;
             this.grpboxListPrsnl.Text = "Liste du Personnel";
-            // 
-            // ListPrsnl
-            // 
-            this.ListPrsnl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ListPrsnl.Location = new System.Drawing.Point(6, 24);
-            this.ListPrsnl.Name = "ListPrsnl";
-            this.ListPrsnl.Size = new System.Drawing.Size(349, 368);
-            this.ListPrsnl.TabIndex = 1;
             // 
             // button1
             // 
@@ -81,6 +72,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Modifier un personnel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -100,6 +92,16 @@
             this.button4.Text = "Gérer l\'absence";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // ListPrsnl
+            // 
+            this.ListPrsnl.FormattingEnabled = true;
+            this.ListPrsnl.HorizontalScrollbar = true;
+            this.ListPrsnl.ItemHeight = 20;
+            this.ListPrsnl.Location = new System.Drawing.Point(6, 25);
+            this.ListPrsnl.Name = "ListPrsnl";
+            this.ListPrsnl.Size = new System.Drawing.Size(349, 364);
+            this.ListPrsnl.TabIndex = 6;
+            // 
             // mdlPersonnelBindingSource
             // 
             this.mdlPersonnelBindingSource.DataSource = typeof(MediaTek86.modele.mdlPersonnel);
@@ -117,7 +119,6 @@
             this.Name = "vuePersonnel";
             this.Text = "Personnel";
             this.grpboxListPrsnl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ListPrsnl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mdlPersonnelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -129,7 +130,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridView ListPrsnl;
         private System.Windows.Forms.BindingSource mdlPersonnelBindingSource;
+        private System.Windows.Forms.ListBox ListPrsnl;
     }
 }

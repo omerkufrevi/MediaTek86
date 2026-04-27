@@ -55,6 +55,7 @@
             this.btnConfirmer.TabIndex = 5;
             this.btnConfirmer.Text = "Confirmer";
             this.btnConfirmer.UseVisualStyleBackColor = true;
+            this.btnConfirmer.Click += new System.EventHandler(this.btnConfirmer_Click);
             // 
             // btnAnnuler
             // 
@@ -64,6 +65,7 @@
             this.btnAnnuler.TabIndex = 4;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // groupBox1
             // 
@@ -97,6 +99,10 @@
             // cmbboxService
             // 
             this.cmbboxService.FormattingEnabled = true;
+            this.cmbboxService.Items.AddRange(new object[] {
+            "admninistratif",
+            "médiation culturelle",
+            "prêt"});
             this.cmbboxService.Location = new System.Drawing.Point(127, 177);
             this.cmbboxService.Name = "cmbboxService";
             this.cmbboxService.Size = new System.Drawing.Size(196, 28);

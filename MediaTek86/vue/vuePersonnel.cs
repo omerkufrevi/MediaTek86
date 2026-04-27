@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MediaTek86.dal;
+using MediaTek86.modele;
 
 namespace MediaTek86.vue
 {
@@ -17,14 +18,7 @@ namespace MediaTek86.vue
         {
             InitializeComponent();
             ListPrsnl.DataSource = dalPersonnelList.GetPersonnelList();
-            ListPrsnl.ReadOnly = true;
-            ListPrsnl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            ListPrsnl.Columns["idPersonnel"].Visible = false;
-            ListPrsnl.Columns["idService"].Visible = false;
-            ListPrsnl.Columns["nom"].HeaderText = "Nom";
-            ListPrsnl.Columns["prenom"].HeaderText = "Prénom";
-            ListPrsnl.Columns["tel"].HeaderText = "Téléphone";
-            ListPrsnl.Columns["mail"].HeaderText = "Email";
+            ListPrsnl.DisplayMember = "NomPrenomTeletc";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,6 +26,22 @@ namespace MediaTek86.vue
             vueAjout frm = new vueAjout();
             frm.Show();
             this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (ListPrsnl.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un élément");
+                return;
+            }
+            else
+            {
+                mdlPersonnel personnel = (mdlPersonnel)ListPrsnl.SelectedItem;
+                vueModif frm = new vueModif(personnel.idPersonnel);
+                frm.Show();
+                this.Hide();
+            }
         }
     }
 }

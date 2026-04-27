@@ -18,7 +18,10 @@ namespace MediaTek86.modele
         public string tel { get; set; }
         public string mail { get; set; }
         public int idService { get; set; }
-
+        public string NomPrenomTeletc
+        {
+            get { return nom + " " + prenom + " " + tel + " " + mail + " " + idService; }
+        }
         public mdlPersonnel(int idPersonnel, string nom, string prenom, string tel, string mail, int idService)
         {
             this.idPersonnel = idPersonnel;
