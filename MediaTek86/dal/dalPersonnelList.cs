@@ -108,5 +108,19 @@ namespace MediaTek86.dal
                 }
             }
         }
+
+        public static void DeletePersonnelList(int idpersonnel)
+        {
+            using (MySqlConnection connection = BddManager.GetConnection())
+            {
+                connection.Open();
+                string requetteSql = "DELETE FROM personnel WHERE idpersonnel = @idpersonnel";
+                using (MySqlCommand cmd = new MySqlCommand(requetteSql, connection))
+                {
+                    cmd.Parameters.AddWithValue("@idpersonnel", idpersonnel);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

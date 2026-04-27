@@ -21,6 +21,13 @@ namespace MediaTek86.vue
             ListPrsnl.DisplayMember = "NomPrenomTeletc";
         }
 
+        public void actualiserPersonnel()
+        {
+            ListPrsnl.DataSource = null;
+            ListPrsnl.DataSource = dalPersonnelList.GetPersonnelList();
+            ListPrsnl.DisplayMember = "NomPrenomTeletc";
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             vueAjout frm = new vueAjout();
@@ -41,6 +48,31 @@ namespace MediaTek86.vue
                 vueModif frm = new vueModif(personnel.idPersonnel);
                 frm.Show();
                 this.Hide();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (ListPrsnl.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un élément");
+                return;
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show(
+                "Etes-vous sur de supprimer le personnel choisi ?",
+                "Confirmer",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    mdlPersonnel personnel = (mdlPersonnel)ListPrsnl.SelectedItem;
+                    dalPersonnelList.DeletePersonnelList(personnel.idPersonnel);
+                    actualiserPersonnel();
+                }
+                else { }
             }
         }
     }
