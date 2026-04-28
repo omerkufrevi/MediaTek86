@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms.Design;
 using MediaTek86.bddmanager;
 using MediaTek86.modele;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 
 namespace MediaTek86.dal
 {
@@ -37,6 +40,47 @@ namespace MediaTek86.dal
                 }
             }
             return lesAbsences;
+        }
+
+        public static bool ExistAbsence(int idpersonnel, DateTime datedebut, DateTime datefin)
+        {
+            bool result = false;
+            using (MySqlConnection connection = BddManager.GetConnection())
+            {
+                connection.Open();
+                string requetteSql = "SELECT COUNT(*) FROM absence WHERE idpersonnel = @idpersonnel AND @datedebut <= datefin AND @datefin >= datedebut";
+                using (MySqlCommand cmd = new MySqlCommand(requetteSql, connection))
+                {
+                    cmd.Parameters.AddWithValue("@idpersonnel", idpersonnel);
+                    cmd.Parameters.AddWithValue("@datedebut", datedebut);
+                    cmd.Parameters.AddWithValue("@datefin", datefin);
+                    
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    if (count > 0) 
+                    {
+                        result = true;
+                        return result;
+                    }
+                    else { return result; }
+                }
+            }
+        }
+
+        public static void SetAbsence(int idpersonnel, DateTime datedebut, DateTime datefin, int idmotif)
+        {
+            using (MySqlConnection connection = BddManager.GetConnection())
+            {
+                connection.Open();
+                string requetteSql = "INSERT INTO absence (idpersonnel, datedebut, datefin, idmotif) VALUES (@idpersonnel, @datedebut, @datefin, @idmotif)";
+                using (MySqlCommand cmd = new MySqlCommand(requetteSql, connection))
+                {
+                    cmd.Parameters.AddWithValue("@idpersonnel", idpersonnel);
+                    cmd.Parameters.AddWithValue("@datedebut", datedebut);
+                    cmd.Parameters.AddWithValue("@datefin", datefin);
+                    cmd.Parameters.AddWithValue("@idmotif", idmotif);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

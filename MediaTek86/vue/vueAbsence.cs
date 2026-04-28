@@ -13,11 +13,34 @@ namespace MediaTek86.vue
 {
     public partial class vueAbsence : Form
     {
+        private int selectedpersonnel;
         public vueAbsence(int selectedpersonnel)
         {
             InitializeComponent();
+            this.selectedpersonnel = selectedpersonnel;
             ListAbs.DataSource = dalAbsenceList.GetAbsenceList(selectedpersonnel);
             ListAbs.DisplayMember = "DateDebutDateFinMotif";
+        }
+
+        public void actualiserAbsence()
+        {
+            ListAbs.DataSource = null;
+            ListAbs.DataSource = dalAbsenceList.GetAbsenceList(selectedpersonnel);
+            ListAbs.DisplayMember = "DateDebutDateFinMotif";
+        }
+
+        private void btnFermer_Click(object sender, EventArgs e)
+        {
+            vuePersonnel frm = new vuePersonnel();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            vueAjoutAbs frm = new vueAjoutAbs(selectedpersonnel);
+            frm.Show();
+            this.Hide();
         }
     }
 }

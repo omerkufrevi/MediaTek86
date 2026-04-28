@@ -48,6 +48,7 @@
             this.btnFermer.TabIndex = 10;
             this.btnFermer.Text = "Fermer";
             this.btnFermer.UseVisualStyleBackColor = true;
+            this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
             // 
             // btnSupp
             // 
@@ -75,6 +76,7 @@
             this.btnAjouter.TabIndex = 7;
             this.btnAjouter.Text = "Ajouter une absence";
             this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // grpboxListAbsence
             // 
