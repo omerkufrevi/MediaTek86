@@ -75,5 +75,21 @@ namespace MediaTek86.vue
                 else { }
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (ListPrsnl.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un élément");
+                return;
+            }
+            else
+            {
+                mdlPersonnel personnel = (mdlPersonnel)ListPrsnl.SelectedItem;
+                vueAbsence frm = new vueAbsence(personnel.idPersonnel);
+                frm.Show();
+                this.Hide();
+            }
+        }
     }
 }
