@@ -59,5 +59,30 @@ namespace MediaTek86.vue
                 this.Hide();
             }
         }
+
+        private void btnSupp_Click(object sender, EventArgs e)
+        {
+            if (ListAbs.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un élément");
+                return;
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show(
+                "Etes-vous sur de supprimer le personnel choisi ?",
+                "Confirmer",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    mdlAbsence absence = (mdlAbsence)ListAbs.SelectedItem;
+                    dalAbsenceList.DeleteAbsenceList(selectedpersonnel, absence.datedebut, absence.datefin, absence.idMotif);
+                    actualiserAbsence();
+                }
+                else { }
+            }
+        }
     }
 }

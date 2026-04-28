@@ -123,5 +123,22 @@ namespace MediaTek86.dal
                 }
             }
         }
+
+        public static void DeleteAbsenceList(int idpersonnel, DateTime datedebut, DateTime datefin, int motif)
+        {
+            using (MySqlConnection connection = BddManager.GetConnection())
+            {
+                connection.Open();
+                string requetteSql = "DELETE FROM absence WHERE idpersonnel = @idpersonnel AND datedebut = @datedebut AND datefin = @datefin AND idmotif = @idmotif";
+                using (MySqlCommand cmd = new MySqlCommand(requetteSql, connection))
+                {
+                    cmd.Parameters.AddWithValue("@datedebut", datedebut);
+                    cmd.Parameters.AddWithValue("@datefin", datefin);
+                    cmd.Parameters.AddWithValue("@idmotif", motif);
+                    cmd.Parameters.AddWithValue("@idpersonnel", idpersonnel);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

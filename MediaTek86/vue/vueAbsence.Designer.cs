@@ -58,6 +58,7 @@
             this.btnSupp.TabIndex = 9;
             this.btnSupp.Text = "Supprimer une absence";
             this.btnSupp.UseVisualStyleBackColor = true;
+            this.btnSupp.Click += new System.EventHandler(this.btnSupp_Click);
             // 
             // btnModifier
             // 
