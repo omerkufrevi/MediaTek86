@@ -90,12 +90,12 @@ namespace MediaTek86.dal
             }
         }
 
-        public static void ModifierPersonnelList(string nom, string prenom, string tel, string mail, int idservice, int idpersonne)
+        public static void ModifierPersonnelList(string nom, string prenom, string tel, string mail, int idservice, int idpersonnel)
         {
             using (MySqlConnection connection = BddManager.GetConnection())
             {
                 connection.Open();
-                string requetteSql = "UPDATE personnel SET idpersonnel = @idpersonne, nom = @nom, prenom = @prenom, tel = @tel, mail = @mail, idservice = @idservice WHERE idpersonnel = @idpersonne;";
+                string requetteSql = "UPDATE personnel SET idpersonnel = @idpersonnel, nom = @nom, prenom = @prenom, tel = @tel, mail = @mail, idservice = @idservice WHERE idpersonnel = @idpersonnel;";
                 using (MySqlCommand cmd = new MySqlCommand(requetteSql, connection))
                 {
                     cmd.Parameters.AddWithValue("@nom", nom);
@@ -103,7 +103,7 @@ namespace MediaTek86.dal
                     cmd.Parameters.AddWithValue("@tel", tel);
                     cmd.Parameters.AddWithValue("@mail", mail);
                     cmd.Parameters.AddWithValue("@idservice", idservice);
-                    cmd.Parameters.AddWithValue("@idpersonne", idpersonne);
+                    cmd.Parameters.AddWithValue("@idpersonnel", idpersonnel);
                     cmd.ExecuteNonQuery();
                 }
             }

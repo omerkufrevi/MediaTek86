@@ -67,6 +67,7 @@
             this.btnModifier.TabIndex = 8;
             this.btnModifier.Text = "Modifier une absence";
             this.btnModifier.UseVisualStyleBackColor = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnAjouter
             // 

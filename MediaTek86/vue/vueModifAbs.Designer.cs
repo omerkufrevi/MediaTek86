@@ -34,12 +34,12 @@
             this.btnConfirmer = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpFin = new System.Windows.Forms.DateTimePicker();
+            this.dtpDebut = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbboxMotif = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +51,7 @@
             this.btnConfirmer.TabIndex = 8;
             this.btnConfirmer.Text = "Confirmer";
             this.btnConfirmer.UseVisualStyleBackColor = true;
+            this.btnConfirmer.Click += new System.EventHandler(this.btnConfirmer_Click);
             // 
             // btnAnnuler
             // 
@@ -60,11 +61,12 @@
             this.btnAnnuler.TabIndex = 7;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtpFin);
+            this.groupBox1.Controls.Add(this.dtpDebut);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cmbboxMotif);
             this.groupBox1.Controls.Add(this.label4);
@@ -76,6 +78,20 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Les informations";
+            // 
+            // dtpFin
+            // 
+            this.dtpFin.Location = new System.Drawing.Point(253, 60);
+            this.dtpFin.Name = "dtpFin";
+            this.dtpFin.Size = new System.Drawing.Size(136, 26);
+            this.dtpFin.TabIndex = 11;
+            // 
+            // dtpDebut
+            // 
+            this.dtpDebut.Location = new System.Drawing.Point(42, 60);
+            this.dtpDebut.Name = "dtpDebut";
+            this.dtpDebut.Size = new System.Drawing.Size(136, 26);
+            this.dtpDebut.TabIndex = 10;
             // 
             // label5
             // 
@@ -89,6 +105,11 @@
             // cmbboxMotif
             // 
             this.cmbboxMotif.FormattingEnabled = true;
+            this.cmbboxMotif.Items.AddRange(new object[] {
+            "vacances",
+            "maladie",
+            "motif familial",
+            "congé parental"});
             this.cmbboxMotif.Location = new System.Drawing.Point(127, 125);
             this.cmbboxMotif.Name = "cmbboxMotif";
             this.cmbboxMotif.Size = new System.Drawing.Size(196, 28);
@@ -111,20 +132,6 @@
             this.label3.Size = new System.Drawing.Size(111, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Date de début";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(42, 60);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(136, 26);
-            this.dateTimePicker1.TabIndex = 10;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(253, 60);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(136, 26);
-            this.dateTimePicker2.TabIndex = 11;
             // 
             // vueModifAbs
             // 
@@ -151,7 +158,7 @@
         private System.Windows.Forms.ComboBox cmbboxMotif;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFin;
+        private System.Windows.Forms.DateTimePicker dtpDebut;
     }
 }

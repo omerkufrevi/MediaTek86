@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MediaTek86.dal;
+using MediaTek86.modele;
 
 namespace MediaTek86.vue
 {
@@ -41,6 +42,22 @@ namespace MediaTek86.vue
             vueAjoutAbs frm = new vueAjoutAbs(selectedpersonnel);
             frm.Show();
             this.Hide();
+        }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            if (ListAbs.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un élément");
+                return;
+            }
+            else
+            {
+                mdlAbsence absence = (mdlAbsence)ListAbs.SelectedItem;
+                vueModifAbs frm = new vueModifAbs(selectedpersonnel, absence.datedebut, absence.datefin, absence.idMotif);
+                frm.Show();
+                this.Hide();
+            }
         }
     }
 }
