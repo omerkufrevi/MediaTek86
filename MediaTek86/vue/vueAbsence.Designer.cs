@@ -94,6 +94,7 @@
             // ListAbs
             // 
             this.ListAbs.FormattingEnabled = true;
+            this.ListAbs.HorizontalScrollbar = true;
             this.ListAbs.ItemHeight = 20;
             this.ListAbs.Location = new System.Drawing.Point(23, 36);
             this.ListAbs.Name = "ListAbs";

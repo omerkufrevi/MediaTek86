@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MediaTek86.controleur;
 using MediaTek86.dal;
 using MediaTek86.modele;
 
@@ -15,18 +16,27 @@ namespace MediaTek86.vue
     public partial class vueAbsence : Form
     {
         private int selectedpersonnel;
+        private ctrlAbsence controleur = new ctrlAbsence();
+
+        /// <summary>
+        /// Vue permettant de visualiser le panel Absence.
+        /// </summary>
+        /// <param name="selectedpersonnel"></param>
         public vueAbsence(int selectedpersonnel)
         {
             InitializeComponent();
             this.selectedpersonnel = selectedpersonnel;
-            ListAbs.DataSource = dalAbsenceList.GetAbsenceList(selectedpersonnel);
+            ListAbs.DataSource = controleur.GetAbsenceList(selectedpersonnel);
             ListAbs.DisplayMember = "DateDebutDateFinMotif";
         }
 
+        /// <summary>
+        /// Methode permettant d'actualiser la liste des absences.
+        /// </summary>
         public void actualiserAbsence()
         {
             ListAbs.DataSource = null;
-            ListAbs.DataSource = dalAbsenceList.GetAbsenceList(selectedpersonnel);
+            ListAbs.DataSource = controleur.GetAbsenceList(selectedpersonnel);
             ListAbs.DisplayMember = "DateDebutDateFinMotif";
         }
 
@@ -70,7 +80,7 @@ namespace MediaTek86.vue
             else
             {
                 DialogResult result = MessageBox.Show(
-                "Etes-vous sur de supprimer le personnel choisi ?",
+                "Etes-vous sur de supprimer l'absence choisi ?",
                 "Confirmer",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
@@ -78,7 +88,7 @@ namespace MediaTek86.vue
                 if (result == DialogResult.Yes)
                 {
                     mdlAbsence absence = (mdlAbsence)ListAbs.SelectedItem;
-                    dalAbsenceList.DeleteAbsenceList(selectedpersonnel, absence.datedebut, absence.datefin, absence.idMotif);
+                    controleur.DeleteAbsenceList(selectedpersonnel, absence.datedebut, absence.datefin, absence.idMotif);
                     actualiserAbsence();
                 }
                 else { }

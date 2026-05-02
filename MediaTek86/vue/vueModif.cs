@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
+using MediaTek86.controleur;
 using MediaTek86.dal;
 using MediaTek86.modele;
 
@@ -15,12 +16,17 @@ namespace MediaTek86.vue
 {
     public partial class vueModif : Form
     {
+        private ctrlPersonnel controleur = new ctrlPersonnel();
         private int selectedIndex;
+        /// <summary>
+        /// Vue permettant de visualiser le panel Modifier un personnel.
+        /// </summary>
+        /// <param name="selectedindex"></param>
         public vueModif(int selectedindex)
         {
             InitializeComponent();
             this.selectedIndex = selectedindex;
-            mdlPersonnel personnelInfo = dalPersonnelList.GetPersonnelInfo(selectedindex);
+            mdlPersonnel personnelInfo = controleur.GetPersonnelInfo(selectedindex);
             txtboxNom.Text = personnelInfo.nom;
             txtboxPrenom.Text = personnelInfo.prenom;
             txtboxTel.Text = personnelInfo.tel;
@@ -51,7 +57,7 @@ namespace MediaTek86.vue
             string prenom = txtboxPrenom.Text;
             string tel = txtboxTel.Text;
             string mail = txtboxMail.Text;
-            int service = cmbboxService.SelectedIndex;
+            int service = (int)cmbboxService.SelectedValue;
             if (string.IsNullOrWhiteSpace(nom) || string.IsNullOrWhiteSpace(prenom) || string.IsNullOrWhiteSpace(tel) || string.IsNullOrWhiteSpace(mail) || cmbboxService.SelectedIndex == -1)
             {
                 MessageBox.Show("Veuillez remplir tous les champs");
@@ -59,7 +65,7 @@ namespace MediaTek86.vue
             }
             else
             {
-                dalPersonnelList.ModifierPersonnelList(nom, prenom, tel, mail, service, this.selectedIndex);
+                controleur.ModifierPersonnelList(nom, prenom, tel, mail, service, this.selectedIndex);
                 this.Hide();
                 vuePersonnel frm = new vuePersonnel();
                 frm.Show();

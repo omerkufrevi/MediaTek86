@@ -7,9 +7,19 @@ using System.Threading.Tasks;
 namespace MediaTek86.modele
 {
     /// <summary>
-    /// Classe représentant un motif de l'application.
+    /// Classe représentant les motifs.
     /// </summary>
     internal class mdlMotif
     {
+        // Identifiant du motif
+        public int idMotif { get; set; }
+        // Le libelle
+        public string libelle { get; set; }
+
+        public mdlMotif(int idMotif, string libelle)
+        {
+            this.idMotif = idMotif;
+            this.libelle = libelle;
+        }
     }
 }

@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace MediaTek86.modele
 {
-    /// <summary>
-    /// Classe représentant un service de l'application.
-    /// </summary>
     internal class mdlService
     {
     }

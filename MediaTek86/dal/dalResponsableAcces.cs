@@ -12,24 +12,32 @@ using Org.BouncyCastle.Ocsp;
 namespace MediaTek86.dal
 {
     /// <summary>
-    /// Classe permettant d'acceder aux données pour les responsables
+    /// Classe permettant d'acceder aux données pour les responsables.
     /// </summary>
     internal class dalResponsableAcces
     {
+        /// <summary>
+        /// Vérifie les identifiants de connexion.
+        /// </summary>
         public static bool controleConnexion(string loginText, string pwdText)
         {
             bool connexionOK = false;
             using (MySqlConnection connection = BddManager.GetConnection())
             {
                 connection.Open();
+
+                // Requête pour vérifier login + mot de passe.
                 string requetteSql = "SELECT * FROM responsable WHERE login = @login AND pwd = SHA2(@pwd, 256)";
+
                 using (MySqlCommand cmd = new MySqlCommand(requetteSql, connection))
                 {
+                    // Ajout des paramétres
                     cmd.Parameters.AddWithValue("@login", loginText);
                     cmd.Parameters.AddWithValue("@pwd", pwdText);
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
+                        // Si une ligne est trouvée alors la connexion est validée.
                         if (reader.Read())
                         {
                             connexionOK = true;

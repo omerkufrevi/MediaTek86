@@ -12,16 +12,59 @@ namespace MediaTek86.modele
     /// </summary>
     internal class mdlPersonnel
     {
+        // Identifiant du personnel
         public int idPersonnel { get; set; }
+
+        // Informations personnelles
         public string nom { get; set; }
         public string prenom { get; set; }
         public string tel { get; set; }
         public string mail { get; set; }
+
+        // Service associé
         public int idService { get; set; }
+
+        /// <summary>
+        /// Chaîne pour affichage dans une ListBox.
+        /// </summary>
         public string NomPrenomTeletc
         {
-            get { return nom + " " + prenom + " " + tel + " " + mail + " " + idService; }
+            get 
+            {
+                string service;
+
+                switch (idService)
+                {
+                    case 1:
+                        service = "Administratif";
+                        break;
+
+                    case 2:
+                        service = "Médiation culturelle";
+                        break;
+
+                    case 3:
+                        service = "Prêt";
+                        break;
+
+                    default:
+                        service = "Inconnu";
+                        break;
+                }
+
+                return nom + " " + prenom + " - " + tel + " - " + mail + " - " + service;
+            }
         }
+
+        /// <summary>
+        /// Constructeur du personnel.
+        /// </summary>
+        /// <param name="idPersonnel"></param>
+        /// <param name="nom"></param>
+        /// <param name="prenom"></param>
+        /// <param name="tel"></param>
+        /// <param name="mail"></param>
+        /// <param name="idService"></param>
         public mdlPersonnel(int idPersonnel, string nom, string prenom, string tel, string mail, int idService)
         {
             this.idPersonnel = idPersonnel;

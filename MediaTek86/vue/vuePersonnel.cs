@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MediaTek86.controleur;
 using MediaTek86.dal;
 using MediaTek86.modele;
 
@@ -14,17 +15,25 @@ namespace MediaTek86.vue
 {
     public partial class vuePersonnel : Form
     {
+        private ctrlPersonnel controleur = new ctrlPersonnel();
+
+        /// <summary>
+        /// Vue permettant de visualiser le panel Personnel.
+        /// </summary>
         public vuePersonnel()
         {
             InitializeComponent();
-            ListPrsnl.DataSource = dalPersonnelList.GetPersonnelList();
+            ListPrsnl.DataSource = controleur.GetPersonnelList();
             ListPrsnl.DisplayMember = "NomPrenomTeletc";
         }
 
+        /// <summary>
+        /// Methode permettant d'actualiser la liste du personnel.
+        /// </summary>
         public void actualiserPersonnel()
         {
             ListPrsnl.DataSource = null;
-            ListPrsnl.DataSource = dalPersonnelList.GetPersonnelList();
+            ListPrsnl.DataSource = controleur.GetPersonnelList();
             ListPrsnl.DisplayMember = "NomPrenomTeletc";
         }
 
@@ -69,7 +78,7 @@ namespace MediaTek86.vue
                 if (result == DialogResult.Yes)
                 {
                     mdlPersonnel personnel = (mdlPersonnel)ListPrsnl.SelectedItem;
-                    dalPersonnelList.DeletePersonnelList(personnel.idPersonnel);
+                    controleur.DeletePersonnelList(personnel.idPersonnel);
                     actualiserPersonnel();
                 }
                 else { }

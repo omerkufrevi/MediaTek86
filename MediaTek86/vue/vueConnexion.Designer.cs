@@ -32,9 +32,9 @@
         private void InitializeComponent()
         {
             this.grpboxConnexion = new System.Windows.Forms.GroupBox();
+            this.txtboxPwd = new System.Windows.Forms.TextBox();
             this.txtboxLogin = new System.Windows.Forms.RichTextBox();
             this.btnConnexion = new System.Windows.Forms.Button();
-            this.txtboxPwd = new System.Windows.Forms.TextBox();
             this.grpboxConnexion.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,14 @@
             this.grpboxConnexion.TabIndex = 1;
             this.grpboxConnexion.TabStop = false;
             this.grpboxConnexion.Text = "Connexion";
+            // 
+            // txtboxPwd
+            // 
+            this.txtboxPwd.Location = new System.Drawing.Point(35, 100);
+            this.txtboxPwd.Name = "txtboxPwd";
+            this.txtboxPwd.PasswordChar = '*';
+            this.txtboxPwd.Size = new System.Drawing.Size(227, 26);
+            this.txtboxPwd.TabIndex = 1;
             // 
             // txtboxLogin
             // 
@@ -69,14 +77,6 @@
             this.btnConnexion.UseVisualStyleBackColor = true;
             this.btnConnexion.Click += new System.EventHandler(this.btnConnexion_Click);
             // 
-            // txtboxPwd
-            // 
-            this.txtboxPwd.Location = new System.Drawing.Point(35, 100);
-            this.txtboxPwd.Name = "txtboxPwd";
-            this.txtboxPwd.PasswordChar = '*';
-            this.txtboxPwd.Size = new System.Drawing.Size(227, 26);
-            this.txtboxPwd.TabIndex = 1;
-            // 
             // vueConnexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -86,7 +86,6 @@
             this.Controls.Add(this.grpboxConnexion);
             this.Name = "vueConnexion";
             this.Text = "vueConnexion";
-            this.Load += new System.EventHandler(this.vueConnexion_Load);
             this.grpboxConnexion.ResumeLayout(false);
             this.grpboxConnexion.PerformLayout();
             this.ResumeLayout(false);

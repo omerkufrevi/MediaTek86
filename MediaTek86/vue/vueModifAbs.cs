@@ -7,16 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MediaTek86.controleur;
 using MediaTek86.dal;
 
 namespace MediaTek86.vue
 {
     public partial class vueModifAbs : Form
     {
+        private ctrlAbsence controleur = new ctrlAbsence();
         private int selectedpersonnel;
         private DateTime dateDebutAvant;
         private DateTime dateFinAvant;
         private int motifAvant;
+
+        /// <summary>
+        /// Vue permettant de visualiser le panel Modifier une absence.
+        /// </summary>
+        /// <param name="selectedpersonnel"></param>
+        /// <param name="datedebut"></param>
+        /// <param name="datefin"></param>
+        /// <param name="motif"></param>
         public vueModifAbs(int selectedpersonnel, DateTime datedebut, DateTime datefin, int motif)
         {
             InitializeComponent();
@@ -51,7 +61,7 @@ namespace MediaTek86.vue
         {
             DateTime debut = dtpDebut.Value;
             DateTime fin = dtpFin.Value;
-            int motif = cmbboxMotif.SelectedIndex;
+            int motif = (int)cmbboxMotif.SelectedValue;
             if (debut > fin || motif == -1)
             {
                 MessageBox.Show("Veuillez remplir tous les champs ou verifier les dates");
@@ -59,7 +69,7 @@ namespace MediaTek86.vue
             }
             else
             {
-                bool result = dalAbsenceList.ExistAbsenceModif(selectedpersonnel, debut, fin, dateDebutAvant, dateFinAvant);
+                bool result = controleur.ExistAbsenceModif(selectedpersonnel, debut, fin, dateDebutAvant, dateFinAvant);
                 if (result == true)
                 {
                     MessageBox.Show("Veuillez verifier les dates");
@@ -67,7 +77,7 @@ namespace MediaTek86.vue
                 }
                 else
                 {
-                    dalAbsenceList.ModifierAbsence(selectedpersonnel, debut, fin, motif, dateDebutAvant, dateFinAvant, motifAvant);
+                    controleur.ModifierAbsence(selectedpersonnel, debut, fin, motif, dateDebutAvant, dateFinAvant, motifAvant);
                     this.Hide();
                     vueAbsence frm = new vueAbsence(selectedpersonnel);
                     frm.Show();

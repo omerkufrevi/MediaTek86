@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MediaTek86.controleur;
 using MediaTek86.dal;
 using Mysqlx;
 
@@ -14,14 +15,14 @@ namespace MediaTek86.vue
 {
     public partial class vueConnexion : Form
     {
+        private ctrlResponsable controleur = new ctrlResponsable();
+
+        /// <summary>
+        /// Vue permettant de visualiser le panel Connexion.
+        /// </summary>
         public vueConnexion()
         {
             InitializeComponent();
-        }
-
-        private void vueConnexion_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnConnexion_Click(object sender, EventArgs e)
@@ -35,7 +36,7 @@ namespace MediaTek86.vue
             }
             else
             {
-                bool resultat = dalResponsableAcces.controleConnexion(loginText, pwdText);
+                bool resultat = controleur.controleConnexion(loginText, pwdText);
                 if (resultat)
                 {
                     MessageBox.Show("Connexion réussie");

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MediaTek86.controleur;
 using MediaTek86.dal;
 using MediaTek86.vue;
 
@@ -16,6 +17,11 @@ namespace MediaTek86.vue
 {
     public partial class vueAjout : Form
     {
+        private ctrlPersonnel controleur = new ctrlPersonnel();
+
+        /// <summary>
+        /// Vue permettant de visualiser le panel Ajout d'un personnel.
+        /// </summary>
         public vueAjout()
         {
             InitializeComponent();
@@ -44,7 +50,7 @@ namespace MediaTek86.vue
             string prenom = txtboxPrenom.Text;
             string tel = txtboxTel.Text;
             string mail = txtboxMail.Text;
-            int service = cmbboxService.SelectedIndex;
+            int service = (int)cmbboxService.SelectedValue;
             if (string.IsNullOrWhiteSpace(nom) || string.IsNullOrWhiteSpace(prenom) || string.IsNullOrWhiteSpace(tel) || string.IsNullOrWhiteSpace(mail) || cmbboxService.SelectedIndex == -1)
             {
                 MessageBox.Show("Veuillez remplir tous les champs");
@@ -52,7 +58,7 @@ namespace MediaTek86.vue
             }
             else
             {
-                dalPersonnelList.SetPersonnelList(nom, prenom, tel, mail, service);
+                controleur.SetPersonnelList(nom, prenom, tel, mail, service);
                 this.Hide();
                 vuePersonnel frm = new vuePersonnel();
                 frm.Show();

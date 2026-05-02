@@ -12,14 +12,57 @@ namespace MediaTek86.modele
     /// </summary>
     internal class mdlAbsence
     {
+        // Identifiant du personnel
         public int idPersonnel { get; set; }
+
+        // Informations de l'absence
         public DateTime datedebut { get; set; }
         public DateTime datefin { get; set; }
         public int idMotif { get; set; }
+
+        /// <summary>
+        /// Chaîne pour affichage dans une ListBox.
+        /// </summary>
         public string DateDebutDateFinMotif
         {
-            get { return datedebut + " - " + datefin + " | Motif : " + idMotif; }
+            get
+            {
+                string motif;
+
+                switch (idMotif)
+                {
+                    case 1:
+                        motif = "Vacances";
+                        break;
+
+                    case 2:
+                        motif = "Maladie";
+                        break;
+
+                    case 3:
+                        motif = "Motif familial";
+                        break;
+
+                    case 4:
+                        motif = "Congé parental";
+                        break;
+
+                    default:
+                        motif = "Inconnu";
+                        break;
+                }
+
+                return datedebut + " - " + datefin + " | Motif : " + motif; 
+            }
         }
+
+        /// <summary>
+        /// Constructeur de l'absence.
+        /// </summary>
+        /// <param name="idPersonnel"></param>
+        /// <param name="datedebut"></param>
+        /// <param name="datefin"></param>
+        /// <param name="idMotif"></param>
         public mdlAbsence(int idPersonnel, DateTime datedebut, DateTime datefin, int idMotif)
         {
             this.idPersonnel = idPersonnel;

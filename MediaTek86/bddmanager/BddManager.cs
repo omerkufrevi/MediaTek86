@@ -16,6 +16,10 @@ namespace MediaTek86.bddmanager
     {
         // Chaîne de connexion à la base de données
         private static string connectionString = "Server=localhost;Database=MediaTek86;User Id=root;Password=;";
+
+        /// <summary>
+        /// Crée et retourne une nouvelle connexion MySQL.
+        /// </summary>
         public static MySqlConnection GetConnection()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);

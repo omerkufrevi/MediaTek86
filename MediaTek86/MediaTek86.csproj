@@ -98,22 +98,17 @@
   <ItemGroup>
     <Compile Include="bddmanager\BddManager.cs" />
     <Compile Include="bddmanager\NamespaceDoc.cs" />
-    <Compile Include="controleur\controleur.cs" />
+    <Compile Include="controleur\ctrlAbsence.cs" />
+    <Compile Include="controleur\ctrlPersonnel.cs" />
+    <Compile Include="controleur\ctrlResponsable.cs" />
     <Compile Include="controleur\NamespaceDoc.cs" />
     <Compile Include="dal\dalAbsenceList.cs" />
     <Compile Include="dal\dalResponsableAcces.cs" />
     <Compile Include="dal\dalPersonnelList.cs" />
     <Compile Include="dal\NamespaceDoc.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="modele\mdlAbsence.cs" />
     <Compile Include="modele\mdlMotif.cs" />
     <Compile Include="modele\mdlPersonnel.cs" />
-    <Compile Include="modele\mdlResponsable.cs" />
     <Compile Include="modele\mdlService.cs" />
     <Compile Include="modele\NamespaceDoc.cs" />
     <Compile Include="Program.cs" />
