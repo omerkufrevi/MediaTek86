@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms.Design;
+using MediaTek86.dal;
 
 namespace MediaTek86.modele
 {
@@ -31,28 +32,8 @@ namespace MediaTek86.modele
         {
             get 
             {
-                string service;
-
-                switch (idService)
-                {
-                    case 1:
-                        service = "Administratif";
-                        break;
-
-                    case 2:
-                        service = "Médiation culturelle";
-                        break;
-
-                    case 3:
-                        service = "Prêt";
-                        break;
-
-                    default:
-                        service = "Inconnu";
-                        break;
-                }
-
-                return nom + " " + prenom + " - " + tel + " - " + mail + " - " + service;
+                mdlService service = dalServiceList.GetServiceName(idService);
+                return nom + " " + prenom + " - " + tel + " - " + mail + " - " + service.nomS;
             }
         }
 

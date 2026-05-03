@@ -17,6 +17,7 @@ namespace MediaTek86.vue
     public partial class vueModif : Form
     {
         private ctrlPersonnel controleur = new ctrlPersonnel();
+        private ctrlService ctrl = new ctrlService();
         private int selectedIndex;
         /// <summary>
         /// Vue permettant de visualiser le panel Modifier un personnel.
@@ -25,13 +26,18 @@ namespace MediaTek86.vue
         public vueModif(int selectedindex)
         {
             InitializeComponent();
+            cmbboxService.DataSource = ctrl.GetService();
+            cmbboxService.DisplayMember = "nomS";
+            cmbboxService.ValueMember = "idService";
+
             this.selectedIndex = selectedindex;
             mdlPersonnel personnelInfo = controleur.GetPersonnelInfo(selectedindex);
+
             txtboxNom.Text = personnelInfo.nom;
             txtboxPrenom.Text = personnelInfo.prenom;
             txtboxTel.Text = personnelInfo.tel;
             txtboxMail.Text = personnelInfo.mail;
-            cmbboxService.SelectedIndex = personnelInfo.idService;
+            cmbboxService.SelectedValue = personnelInfo.idService;
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)

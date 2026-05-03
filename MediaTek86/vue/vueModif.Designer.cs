@@ -99,10 +99,6 @@
             // cmbboxService
             // 
             this.cmbboxService.FormattingEnabled = true;
-            this.cmbboxService.Items.AddRange(new object[] {
-            "admninistratif",
-            "médiation culturelle",
-            "prêt"});
             this.cmbboxService.Location = new System.Drawing.Point(127, 177);
             this.cmbboxService.Name = "cmbboxService";
             this.cmbboxService.Size = new System.Drawing.Size(196, 28);

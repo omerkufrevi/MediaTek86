@@ -99,12 +99,16 @@
     <Compile Include="bddmanager\BddManager.cs" />
     <Compile Include="bddmanager\NamespaceDoc.cs" />
     <Compile Include="controleur\ctrlAbsence.cs" />
+    <Compile Include="controleur\ctrlMotif.cs" />
     <Compile Include="controleur\ctrlPersonnel.cs" />
     <Compile Include="controleur\ctrlResponsable.cs" />
+    <Compile Include="controleur\ctrlService.cs" />
     <Compile Include="controleur\NamespaceDoc.cs" />
     <Compile Include="dal\dalAbsenceList.cs" />
+    <Compile Include="dal\dalMotifList.cs" />
     <Compile Include="dal\dalResponsableAcces.cs" />
     <Compile Include="dal\dalPersonnelList.cs" />
+    <Compile Include="dal\dalServiceList.cs" />
     <Compile Include="dal\NamespaceDoc.cs" />
     <Compile Include="modele\mdlAbsence.cs" />
     <Compile Include="modele\mdlMotif.cs" />

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms.Design;
+using MediaTek86.controleur;
+using MediaTek86.dal;
 
 namespace MediaTek86.modele
 {
@@ -25,34 +27,10 @@ namespace MediaTek86.modele
         /// </summary>
         public string DateDebutDateFinMotif
         {
-            get
-            {
-                string motif;
-
-                switch (idMotif)
-                {
-                    case 1:
-                        motif = "Vacances";
-                        break;
-
-                    case 2:
-                        motif = "Maladie";
-                        break;
-
-                    case 3:
-                        motif = "Motif familial";
-                        break;
-
-                    case 4:
-                        motif = "Congé parental";
-                        break;
-
-                    default:
-                        motif = "Inconnu";
-                        break;
-                }
-
-                return datedebut + " - " + datefin + " | Motif : " + motif; 
+            get {
+                // Méthode pour obtenir le libelle du motif
+                mdlMotif motif = dalMotifList.GetMotifName(idMotif);
+                return datedebut + " - " + datefin + " | Motif : " + motif.libelle;
             }
         }
 

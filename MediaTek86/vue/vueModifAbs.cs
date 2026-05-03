@@ -15,6 +15,7 @@ namespace MediaTek86.vue
     public partial class vueModifAbs : Form
     {
         private ctrlAbsence controleur = new ctrlAbsence();
+        private ctrlMotif ctrl = new ctrlMotif();
         private int selectedpersonnel;
         private DateTime dateDebutAvant;
         private DateTime dateFinAvant;
@@ -30,10 +31,14 @@ namespace MediaTek86.vue
         public vueModifAbs(int selectedpersonnel, DateTime datedebut, DateTime datefin, int motif)
         {
             InitializeComponent();
+            cmbboxMotif.DataSource = ctrl.GetMotif();
+            cmbboxMotif.DisplayMember = "libelle";
+            cmbboxMotif.ValueMember = "idMotif";
+
             this.selectedpersonnel = selectedpersonnel;
             dtpDebut.Value = datedebut;
             dtpFin.Value = datefin;
-            cmbboxMotif.SelectedIndex = motif;
+            cmbboxMotif.SelectedValue = motif;
 
             this.dateDebutAvant = datedebut;
             this.dateFinAvant = datefin;

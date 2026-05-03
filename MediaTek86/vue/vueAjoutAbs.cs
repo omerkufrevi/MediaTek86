@@ -17,6 +17,7 @@ namespace MediaTek86.vue
     {
         private int selectedpersonnel;
         private ctrlAbsence controleur = new ctrlAbsence();
+        private ctrlMotif ctrl = new ctrlMotif();
 
         /// <summary>
         /// Vue permettant de visualiser le panel Ajout d'absence.
@@ -26,6 +27,9 @@ namespace MediaTek86.vue
         {
             InitializeComponent();
             this.selectedpersonnel = selectedpersonnel;
+            cmbboxMotif.DataSource = ctrl.GetMotif();
+            cmbboxMotif.DisplayMember = "libelle";
+            cmbboxMotif.ValueMember = "idMotif";
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)

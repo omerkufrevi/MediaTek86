@@ -17,6 +17,9 @@ namespace MediaTek86.controleur
         /// <summary>
         /// Vérifie les identifiants saisis.
         /// </summary>
+        /// <param name="loginText"></param>
+        /// <param name="pwdText"></param>
+        /// <returns></returns>
         public bool controleConnexion(string loginText, string pwdText)
         {
             return dalResponsableAcces.controleConnexion(loginText, pwdText);

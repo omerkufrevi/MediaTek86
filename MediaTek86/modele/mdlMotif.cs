@@ -16,6 +16,11 @@ namespace MediaTek86.modele
         // Le libelle
         public string libelle { get; set; }
 
+        /// <summary>
+        /// Constructeur du motif.
+        /// </summary>
+        /// <param name="idMotif"></param>
+        /// <param name="libelle"></param>
         public mdlMotif(int idMotif, string libelle)
         {
             this.idMotif = idMotif;

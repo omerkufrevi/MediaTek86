@@ -18,13 +18,16 @@ namespace MediaTek86.vue
     public partial class vueAjout : Form
     {
         private ctrlPersonnel controleur = new ctrlPersonnel();
-
+        private ctrlService ctrl = new ctrlService();
         /// <summary>
         /// Vue permettant de visualiser le panel Ajout d'un personnel.
         /// </summary>
         public vueAjout()
         {
             InitializeComponent();
+            cmbboxService.DataSource = ctrl.GetService();
+            cmbboxService.DisplayMember = "nomS";
+            cmbboxService.ValueMember = "idService";
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)

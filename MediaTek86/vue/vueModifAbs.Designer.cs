@@ -105,11 +105,6 @@
             // cmbboxMotif
             // 
             this.cmbboxMotif.FormattingEnabled = true;
-            this.cmbboxMotif.Items.AddRange(new object[] {
-            "vacances",
-            "maladie",
-            "motif familial",
-            "congé parental"});
             this.cmbboxMotif.Location = new System.Drawing.Point(127, 125);
             this.cmbboxMotif.Name = "cmbboxMotif";
             this.cmbboxMotif.Size = new System.Drawing.Size(196, 28);
