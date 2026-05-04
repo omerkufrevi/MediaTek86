@@ -13,6 +13,9 @@ using MediaTek86.modele;
 
 namespace MediaTek86.vue
 {
+    /// <summary>
+    /// Form Personnel.
+    /// </summary>
     public partial class vuePersonnel : Form
     {
         private ctrlPersonnel controleur = new ctrlPersonnel();
@@ -37,6 +40,11 @@ namespace MediaTek86.vue
             ListPrsnl.DisplayMember = "NomPrenomTeletc";
         }
 
+        /// <summary>
+        /// Bouton ajouter un personnel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             vueAjout frm = new vueAjout();
@@ -44,8 +52,14 @@ namespace MediaTek86.vue
             this.Hide();
         }
 
+        /// <summary>
+        /// Bouton modifier un personnel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
+            // Vérification si aucune personne n'a été choisie
             if (ListPrsnl.SelectedItem == null)
             {
                 MessageBox.Show("Veuillez sélectionner un élément");
@@ -60,8 +74,14 @@ namespace MediaTek86.vue
             }
         }
 
+        /// <summary>
+        /// Bouton supprimer un personnel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
+            // Vérification si aucune personne n'a été choisie
             if (ListPrsnl.SelectedItem == null)
             {
                 MessageBox.Show("Veuillez sélectionner un élément");
@@ -85,8 +105,14 @@ namespace MediaTek86.vue
             }
         }
 
+        /// <summary>
+        /// Bouton pour gerer les absences.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
+            // Vérification si aucune personne n'a été choisie
             if (ListPrsnl.SelectedItem == null)
             {
                 MessageBox.Show("Veuillez sélectionner un élément");

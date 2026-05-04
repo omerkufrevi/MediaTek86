@@ -12,6 +12,9 @@ using MediaTek86.dal;
 
 namespace MediaTek86.vue
 {
+    /// <summary>
+    /// Form modifier une absence.
+    /// </summary>
     public partial class vueModifAbs : Form
     {
         private ctrlAbsence controleur = new ctrlAbsence();
@@ -45,6 +48,11 @@ namespace MediaTek86.vue
             this.motifAvant = motif;
         }
 
+        /// <summary>
+        /// Bouton annuler la modification.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
@@ -62,11 +70,17 @@ namespace MediaTek86.vue
             else { }
         }
 
+        /// <summary>
+        /// Bouton confirmation de modification.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConfirmer_Click(object sender, EventArgs e)
         {
             DateTime debut = dtpDebut.Value;
             DateTime fin = dtpFin.Value;
             int motif = (int)cmbboxMotif.SelectedValue;
+            // Vérification si aucun champ n'a été rempli
             if (debut > fin || motif == -1)
             {
                 MessageBox.Show("Veuillez remplir tous les champs ou verifier les dates");

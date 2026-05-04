@@ -14,11 +14,15 @@ using MediaTek86.modele;
 
 namespace MediaTek86.vue
 {
+    /// <summary>
+    /// Form modifier un personnel.
+    /// </summary>
     public partial class vueModif : Form
     {
         private ctrlPersonnel controleur = new ctrlPersonnel();
         private ctrlService ctrl = new ctrlService();
         private int selectedIndex;
+
         /// <summary>
         /// Vue permettant de visualiser le panel Modifier un personnel.
         /// </summary>
@@ -40,6 +44,11 @@ namespace MediaTek86.vue
             cmbboxService.SelectedValue = personnelInfo.idService;
         }
 
+        /// <summary>
+        /// Bouton annuler la modification.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
@@ -57,6 +66,11 @@ namespace MediaTek86.vue
             else { }
         }
 
+        /// <summary>
+        /// Bouton confirmer la modification.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConfirmer_Click(object sender, EventArgs e)
         {
             string nom = txtboxNom.Text;
@@ -64,6 +78,7 @@ namespace MediaTek86.vue
             string tel = txtboxTel.Text;
             string mail = txtboxMail.Text;
             int service = (int)cmbboxService.SelectedValue;
+            // Vérification si aucun champ n'a été remplie.
             if (string.IsNullOrWhiteSpace(nom) || string.IsNullOrWhiteSpace(prenom) || string.IsNullOrWhiteSpace(tel) || string.IsNullOrWhiteSpace(mail) || cmbboxService.SelectedIndex == -1)
             {
                 MessageBox.Show("Veuillez remplir tous les champs");

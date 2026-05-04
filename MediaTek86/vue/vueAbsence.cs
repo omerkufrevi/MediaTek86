@@ -13,6 +13,9 @@ using MediaTek86.modele;
 
 namespace MediaTek86.vue
 {
+    /// <summary>
+    /// Form absence.
+    /// </summary>
     public partial class vueAbsence : Form
     {
         private int selectedpersonnel;
@@ -40,6 +43,11 @@ namespace MediaTek86.vue
             ListAbs.DisplayMember = "DateDebutDateFinMotif";
         }
 
+        /// <summary>
+        /// Bouton fermer le panel absence.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFermer_Click(object sender, EventArgs e)
         {
             vuePersonnel frm = new vuePersonnel();
@@ -47,6 +55,11 @@ namespace MediaTek86.vue
             this.Hide();
         }
 
+        /// <summary>
+        /// Bouton ajouter une absence.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             vueAjoutAbs frm = new vueAjoutAbs(selectedpersonnel);
@@ -54,8 +67,14 @@ namespace MediaTek86.vue
             this.Hide();
         }
 
+        /// <summary>
+        /// Bouton modifier une absence.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnModifier_Click(object sender, EventArgs e)
         {
+            // Vérification si aucune personne n'a été choisie
             if (ListAbs.SelectedItem == null)
             {
                 MessageBox.Show("Veuillez sélectionner un élément");
@@ -70,8 +89,14 @@ namespace MediaTek86.vue
             }
         }
 
+        /// <summary>
+        /// Bouton supprimer une absence.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSupp_Click(object sender, EventArgs e)
         {
+            // Vérification si aucune personne n'a été choisie
             if (ListAbs.SelectedItem == null)
             {
                 MessageBox.Show("Veuillez sélectionner un élément");

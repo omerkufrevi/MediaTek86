@@ -13,6 +13,9 @@ using MediaTek86.modele;
 
 namespace MediaTek86.vue
 {
+    /// <summary>
+    /// Form ajout absence.
+    /// </summary>
     public partial class vueAjoutAbs : Form
     {
         private int selectedpersonnel;
@@ -32,6 +35,11 @@ namespace MediaTek86.vue
             cmbboxMotif.ValueMember = "idMotif";
         }
 
+        /// <summary>
+        /// Bouton annuler l'ajout d'une absence.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
@@ -54,6 +62,7 @@ namespace MediaTek86.vue
             DateTime datedebut = dtpDebut.Value;
             DateTime datefin = dtpFin.Value;
             int motif = (int)cmbboxMotif.SelectedValue;
+            // Vérification si aucun champ n'a été remplie.
             if (datedebut > datefin || motif == -1)
             {
                 MessageBox.Show("Veuillez remplir tous les champs ou verifier les dates");
